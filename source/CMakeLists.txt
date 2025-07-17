@@ -6,7 +6,9 @@ target_sources(${PROJECT_NAME} PRIVATE
 	"Logging.cpp"
 	"Logging.h"
 	"LoggingConfig.h"
- "LogLevel.h")
+	"LogLevel.h"
+	"ScopedTimer.cpp"
+)
 
 target_include_directories(${PROJECT_NAME} PRIVATE
 	${LOGGINGAD_SOURCE_DIR}

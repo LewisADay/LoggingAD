@@ -42,7 +42,11 @@ namespace LoggingAD {
 			}
 
 			if (m_Config.PrependLogLevel) {
-				*m_Config.Stream << "[" << LogLevelToStringView(level) << "] ";
+				std::format_to(
+					std::ostream_iterator<char>(*m_Config.Stream), // Send straight to stream, no need for temp local string
+					"[{:^9}] ",
+					LogLevelToStringView(level)
+				);
 			}
 
 			*m_Config.Stream << message << std::endl;;

@@ -2,13 +2,14 @@
 #include <iostream>
 
 #include <LoggingAD.h>
+#include <ScopedTimer.h>
 
 int main() {
 
+	LoggingAD::ScopedTimer mainScopeTimer{ "Main" };
+
 	LoggingAD::LoggingConfig config = {
-		.OutputLevel = LoggingAD::LogLevel::Trace,
-		.LogToFile = true,
-		.LogFilePath = "temp.txt",
+		.OutputLevel = LoggingAD::LogLevel::Trace
 	};
 
 	LoggingAD::SetConfig(config);
