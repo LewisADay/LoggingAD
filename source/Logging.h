@@ -19,7 +19,7 @@ namespace LoggingAD {
 		static Logging& GetInstance();
 
 	public:
-		void Init(const LoggingConfig& config = {});
+		void SetConfig(const LoggingConfig& config = {});
 		void Log(const LogLevel level, const std::string& message);
 
 	private:
@@ -28,7 +28,6 @@ namespace LoggingAD {
 
 	private:
 		LoggingConfig m_Config = {};
-		bool m_Initialised = false;
 		std::ofstream m_FileStream{};
 
 	};

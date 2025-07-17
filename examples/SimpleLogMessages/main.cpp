@@ -11,7 +11,7 @@ int main() {
 		.LogFilePath = "temp.txt",
 	};
 
-	LoggingAD::Init(config);
+	LoggingAD::SetConfig(config);
 
 	LoggingAD::Trace("Hello world!");
 	LoggingAD::Message("Hello world!");

@@ -53,25 +53,13 @@ namespace LoggingAD {
 		}
 	}
 
-	void Logging::Init(const LoggingConfig& config) {
-		if (m_Initialised) {
-			Log(LogLevel::Warning, "[LoggingAD::Logging] Logging instance already initialised. Retaining original configuration.");
-			return;
-		}
-
+	void Logging::SetConfig(const LoggingConfig& config) {
 		m_Config = config;
 
-		if (m_Config.LogToFile) {
-			if (m_Config.LogFilePath.empty()) {
-				Log(LogLevel::Error, "[LoggingAD::Logging] Logging to file enabled, but no file specified. Please verify your LoggingConfiguration.");
-				static_assert("[LoggingAD::Logging] Logging to file enabled, but no file specified. Please verify your LoggingConfiguration.");
-			}
-			else {
-
-			}
+		if (m_Config.LogToFile && m_Config.LogFilePath.empty()) {
+			Log(LogLevel::Error, "[LoggingAD::Logging] Logging to file enabled, but no file specified. Please verify your LoggingConfiguration.");
+			static_assert("[LoggingAD::Logging] Logging to file enabled, but no file specified. Please verify your LoggingConfiguration.");
 		}
-
-		m_Initialised = true;
 	}
 
 	Logging& Logging::GetInstance() {

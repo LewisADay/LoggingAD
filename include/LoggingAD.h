@@ -7,8 +7,8 @@
 
 namespace LoggingAD {
 
-	void Init(const LoggingConfig& config = {}) {
-		Logging::GetInstance().Init(config);
+	void SetConfig(const LoggingConfig& config = {}) {
+		Logging::GetInstance().SetConfig(config);
 	}
 
 	void Log(LogLevel level, const std::string& message) {
