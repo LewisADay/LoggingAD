@@ -1,5 +1,5 @@
 
 target_sources(${PROJECT_NAME} PUBLIC
-	"LoggingAD.h"
-	"ScopedTimer.h"
+	"LoggingAD/LoggingAD.h"
+	"LoggingAD/ScopedTimer.h"
 )

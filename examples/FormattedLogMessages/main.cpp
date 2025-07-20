@@ -1,8 +1,8 @@
 
 #include <iostream>
 
-#include <LoggingAD.h>
-#include <ScopedTimer.h>
+#include <LoggingAD/LoggingAD.h>
+#include <LoggingAD/ScopedTimer.h>
 
 int main() {
 

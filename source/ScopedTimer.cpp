@@ -1,5 +1,5 @@
-#include "ScopedTimer.h"
-#include "../source/Logging.h"
+#include "LoggingAD/ScopedTimer.h"
+#include "Logging.h"
 
 #include <format>
 
