@@ -16,8 +16,9 @@ add_subdirectory("source")
 add_subdirectory("include")
 add_subdirectory("vendor")
 
-set(BUILD_EXAMPLES ON)
+# As cache so it may be nicely overridden by a parent CMake scope
+set(LOGGINGAD_BUILD_EXAMPLES ON CACHE bool "Should we build LoggingAD's examples?")
 
-if (BUILD_EXAMPLES)
+if (LOGGINGAD_BUILD_EXAMPLES)
 	add_subdirectory("examples")
 endif()
