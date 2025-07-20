@@ -8,7 +8,6 @@
 namespace LoggingAD {
 
 	class ScopedTimer {
-
 	public:
 		ScopedTimer(const std::string& name, LogLevel level = LogLevel::Info);
 		~ScopedTimer();
