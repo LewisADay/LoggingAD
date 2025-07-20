@@ -8,7 +8,31 @@
 
 namespace LoggingAD {
 
-	static inline void SetConfig(const LoggingConfig& config = {}) {
+#ifdef LOGGING_AD_DISABLE
+
+	static inline void SetConfig(const LoggingConfig& config) {}
+	static inline void Log(LogLevel level, const std::string& message) {}
+	template<class... Args> requires (sizeof...(Args) > 0)
+	static inline void Log(LogLevel level, std::string_view format, Args&&... args) {}
+	template<class... Args> requires (sizeof...(Args) > 0)
+	static inline void Trace(std::string_view format, Args&&... args) {}
+	static inline void Trace(const std::string& message) {}
+	template<class... Args> requires (sizeof...(Args) > 0)
+	static inline void Message(std::string_view format, Args&&... args) {}
+	static inline void Message(const std::string& message) {}
+	template<class... Args> requires (sizeof...(Args) > 0)
+	static inline void Info(std::string_view format, Args&&... args) {}
+	static inline void Info(const std::string& message) {}
+	template<class... Args> requires (sizeof...(Args) > 0)
+	static inline void Warning(std::string_view format, Args&&... args) {}
+	static inline void Warning(const std::string& message) {}
+	template<class... Args> requires (sizeof...(Args) > 0)
+	static inline void Error(std::string_view format, Args&&... args) {}
+	static inline void Error(const std::string& message) {}
+
+#else
+
+	static inline void SetConfig(const LoggingConfig& config) {
 		Logging::GetInstance().SetConfig(config);
 	}
 
@@ -71,5 +95,7 @@ namespace LoggingAD {
 	static inline void Error(const std::string& message) {
 		Log(LogLevel::Error, message);
 	}
+
+#endif
 
 } // LoggingAD
